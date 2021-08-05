@@ -1,12 +1,30 @@
 import { Box, Button, Card, Grid } from "@material-ui/core";
 import { useRouter } from "next/dist/client/router";
 import React from "react";
+import TrackList from "../../components/TrackList";
 import MainLayout from "../../layouts/MainLayout";
 import { ITrack } from "../../types/tracks";
 
 const Index = () => {
   const router = useRouter();
-  // const tracks: ITrack[] = [{}];
+  const tracks: ITrack[] = [
+    {
+      _id: "dgdfgd",
+      name: "Трек 1",
+      artist: "fdgdfd",
+      text: "dfbcvbc rdgd",
+      listens: 44,
+      picture: "dfgfdgd",
+      audio: "fgddfd",
+      comments: [
+        {
+          _id: "fgfdgdf",
+          username: "dfgdfg4546",
+          text: "dfgdgfddf",
+        },
+      ],
+    },
+  ];
 
   return (
     <MainLayout>
@@ -20,6 +38,7 @@ const Index = () => {
               </Button>
             </Grid>
           </Box>
+          <TrackList tracks={tracks} />
         </Card>
       </Grid>
     </MainLayout>
