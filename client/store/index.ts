@@ -1,8 +1,7 @@
 import { Context, createWrapper, MakeStore } from 'next-redux-wrapper';
-import { createStore, Store } from 'redux';
+import { applyMiddleware, createStore, Store } from 'redux';
 import { reducer, RootState } from './reducers';
 
-//TODO: fix this
-const makeStore: MakeStore<RootState> = (context: Context) => createStore(reducer);
+const makeStore = (context: Context) => createStore(reducer, applyMiddleware);
 
-export const wrapper = createWrapper<Store<State>>(makeStore, {debug: true});
+export const wrapper = createWrapper<Store<RootState>>(makeStore, {debug: true});
